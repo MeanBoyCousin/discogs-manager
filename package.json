@@ -1,0 +1,23 @@
+{
+    "name": "discogs-manager",
+    "private": true,
+    "version": "1.0.0",
+    "description": "Discogs inventory manager.",
+    "scripts": {
+        "build": "tsc --build && tsc-alias",
+        "start": "node dist/index",
+        "dev": "ts-node src/index"
+    },
+    "dependencies": {
+        "croner": "^5.3.5",
+        "disconnect": "^1.2.2"
+    },
+    "devDependencies": {
+        "@types/node": "16.x.x",
+        "dotenv": "^16.0.3",
+        "ts-node": "^10.9.1",
+        "tsc-alias": "^1.8.2",
+        "typescript": "^4.9.4"
+    }
+}
+
