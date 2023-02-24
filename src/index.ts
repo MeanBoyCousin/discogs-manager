@@ -12,9 +12,11 @@ Cron('0 12 * * 7', async () => {
     const { listings } = await Discogs.getInventory(process.env.DISCOGS_USER)
 
     for (const listing of listings) {
-        const { id, price } = listing
+        const { id, price, status } = listing
         const newPrice = roundPrice(price.value * 0.99)
 
-        await Discogs.editListing(id, { price: newPrice })
+        if (status !== 'Sold') {
+            await Discogs.editListing(id, { price: newPrice })
+        }
     }
 })
